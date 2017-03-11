@@ -3,8 +3,8 @@ title: "baseball"
 author: "mcdevitt"
 date: "10-mars-2017"
 output:
-  md_document: default
   html_document: default
+  md_document: default
   pdf_document: default
 ---
 
@@ -23,6 +23,10 @@ summary(bb)
 str(bb)
 
 names(bb) <- tolower(names(bb))
+
+hist(bb$payroll)
+hist(log(bb$payroll))
+hist(bb$wins)
 
 df_CIN <- bb[(bb$team == "CIN"),]
 
@@ -104,7 +108,7 @@ points(df_SD$wins ~ df_SD$payroll, col = 'black', pch = 20, cex = 2)
 ```
 
 
-## 4.	The league commissioner notes that the Texas Rangers with one of the lowest payrolls won 90 games (and were the American League Champions) and the Chicago Cubs with the highest payroll won only 75 games.  This, he argues, proves there is no advantage to teams with a higher payroll.  Comment on his argument.  
+### 4.	The league commissioner notes that the Texas Rangers with one of the lowest payrolls won 90 games (and were the American League Champions) and the Chicago Cubs with the highest payroll won only 75 games.  This, he argues, proves there is no advantage to teams with a higher payroll.  Comment on his argument.  
 
 
-## 5.	What is the population for these data? Can these data be considered as a random sample from that population?  
+### 5.	What is the population for these data? Can these data be considered as a random sample from that population?  
