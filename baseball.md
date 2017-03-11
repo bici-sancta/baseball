@@ -24,29 +24,31 @@ Baseball
 ![](baseball_files/figure-markdown_strict/unnamed-chunk-2-1.png)
 
 Q1.1 : Looking at the scatterplot, do you expect the correlation to be
-positive, negative, or close to 0? A1.1 : Based on the initial scatter
-plot, the correlation is positive.
+positive, negative, or close to 0?  
+**A1.1 : Based on the initial scatter plot, the correlation is
+positive.**
 
-Q1.2 : Why? A1.2 : The trend is showing that with higher payroll, there
-is a higher number of wins (generally). The highest number of wins is
+Q1.2 : Why?  
+**A1.2 : The trend is showing that with higher payroll, there is a
+higher number of wins (generally). The highest number of wins is
 associated to the highest payroll, and the lowest number of wins is from
-the team with the lowest payroll.
+the team with the lowest payroll.**
 
 Q1.3 : Is the relationship between team payroll and number of wins
 strong, moderate or weak?  
-A1.3 : The relationship appears generally weak. A tendency, but with a
-fair amount of variation from a central tendency.
+**A1.3 : The relationship appears generally weak. A tendency, but with a
+fair amount of variation from a central tendency.**
 
-Q1.4 : Is the relationship linear? A1.4 : The relationship is generally
-linear. There is somewhat of steeper slope at the lower end of the data
-set and shalllower at the higher values.
+Q1.4 : Is the relationship linear?  
+**A1.4 : The relationship is generally linear. There is somewhat of
+steeper slope at the lower end of the data set and shalllower at the
+higher values.**
 
 Q1.5 : Take a guess of the value of the correlation coefficient.  
-Q1.5 : From experience, the r^2 value for this data is likely in the 20%
-range.
+**A1.5 : From experience, the r^2 value for this data is likely in the
+20% range.**
 
-2. Find the correlation between team payroll and the number of wins = no fair going back and changing your answer to the previous question! You should do this in both R and SAS.
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### 2. Find the correlation between team payroll and the number of wins = no fair going back and changing your answer to the previous question! You should do this in both R and SAS.
 
     r <- cor(bb$payroll, bb$wins)
     r2 <- r * r
