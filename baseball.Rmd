@@ -1,0 +1,105 @@
+---
+title: "baseball"
+author: "mcdevitt"
+date: "10-mars-2017"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Baseball 
+
+
+```{r, echo = FALSE, message = FALSE}
+
+bb <- read.csv ("baseball.csv", header = TRUE, sep = ",")
+
+summary(bb)
+str(bb)
+
+names(bb) <- tolower(names(bb))
+
+df_CIN <- bb[(bb$team == "CIN"),]
+
+```
+
+### 1.	Provide a scatterplot of the data using both SAS and R.
+
+```{r}
+
+plot(bb$wins ~ bb$payroll)
+
+points(df_CIN$wins ~ df_CIN$payroll, col = 'red', cex = 1.5)
+
+```
+
+Q1.1 : Looking at the scatterplot, do you expect the correlation to be positive, negative, or close to 0?
+A1.1 : Based on the initial scatter plot, the correlation is positive.
+
+Q1.2 : Why?
+A1.2 : The trend is showing that with higher payroll, there is a higher number of wins (generally). The highest number of wins is associated to the highest payroll, and the lowest number of wins is from the team with the lowest payroll.
+
+Q1.3 : Is the relationship between team payroll and number of wins strong, moderate or weak?  
+A1.3 : The relationship appears generally weak. A tendency, but with a fair amount of variation from a central tendency.
+
+Q1.4 : Is the relationship linear?
+A1.4 : The relationship is generally linear. There is somewhat of steeper slope at the lower end of the data set and shalllower at the higher values.
+
+Q1.5 : Take a guess of the value of the correlation coefficient.  
+Q1.5 : From experience, the r^2 value for this data is likely in the 20% range.
+
+
+
+## 2.	Find the correlation between team payroll and the number of wins = no fair going back and changing your answer to the previous question!  You should do this in both R and SAS. 
+
+```{r}
+
+r <- cor(bb$payroll, bb$wins)
+r2 <- r * r
+fit_all <- lm(wins ~ payroll, data = bb)
+
+print(sprintf("Correlation = %9.3f, r^2 = %9.3f", r, r2))
+
+plot(bb$wins ~ bb$payroll, col = 'blue', pch = 19)
+lines(fit_all$fitted.values ~ bb$payroll, col = 'darkgrey', lwd = 2)
+points(df_CIN$wins ~ df_CIN$payroll, col = 'red', cex = 1.5)
+
+```
+
+
+
+## 3.	San Diego (SD) has a payroll of 38 million, yet has 90 wins – more than Boston does.  
+Delete SD from the data and rerun the analysis.  
+How does the correlation change?  You may use your preference here, R or SAS. 
+
+```{r}
+
+bb2 <- bb
+df_SD <- bb2[(bb2$team == "SD"),]
+bb2 <- bb2[!(bb2$team == "SD"),]
+bb2
+
+r_sansSD <- cor(bb2$payroll, bb2$wins)
+r2_sansSD <- r_sansSD * r_sansSD
+fit_sansSD <- lm(wins ~ payroll, data = bb2)
+
+print(sprintf("Without San Diego : correlation = %9.3f, r^2 = %9.3f", r_sansSD, r2_sansSD))
+
+plot(bb2$wins ~ bb2$payroll, col = 'cyan', pch = 19)
+lines(fit_all$fitted.values ~ bb$payroll, col = 'darkgrey', lwd = 2)
+lines(fit_sansSD$fitted.values ~ bb2$payroll, col = 'black', lwd = 3, lty = 2)
+points(df_CIN$wins ~ df_CIN$payroll, col = 'red', cex = 1.5)
+points(df_SD$wins ~ df_SD$payroll, col = 'black', pch = 20, cex = 2)
+
+```
+
+
+## 4.	The league commissioner notes that the Texas Rangers with one of the lowest payrolls won 90 games (and were the American League Champions) and the Chicago Cubs with the highest payroll won only 75 games.  This, he argues, proves there is no advantage to teams with a higher payroll.  Comment on his argument.  
+
+
+## 5.	What is the population for these data? Can these data be considered as a random sample from that population?  
