@@ -15,6 +15,8 @@ Baseball
     ##  $ Payroll: int  206 162 146 142 134 123 106 105 99 98 ...
     ##  $ Wins   : int  95 89 75 97 79 81 88 80 92 94 ...
 
+![](baseball_files/figure-markdown_strict/unnamed-chunk-1-1.png)![](baseball_files/figure-markdown_strict/unnamed-chunk-1-2.png)![](baseball_files/figure-markdown_strict/unnamed-chunk-1-3.png)
+
 ### 1. Provide a scatterplot of the data using both SAS and R.
 
     plot(bb$wins ~ bb$payroll)
@@ -22,6 +24,10 @@ Baseball
     points(df_CIN$wins ~ df_CIN$payroll, col = 'red', cex = 1.5)
 
 ![](baseball_files/figure-markdown_strict/unnamed-chunk-2-1.png)
+
+And the SAS plot ...
+
+![Wins vs. Payroll from SAS PROC sgscatter](scatter_plot.png)
 
 Q1.1 : Looking at the scatterplot, do you expect the correlation to be
 positive, negative, or close to 0?  
@@ -63,6 +69,10 @@ Q1.5 : Take a guess of the value of the correlation coefficient.
     points(df_CIN$wins ~ df_CIN$payroll, col = 'red', cex = 1.5)
 
 ![](baseball_files/figure-markdown_strict/unnamed-chunk-3-1.png)
+
+And the SAS correlation ...
+
+![Wins vs. Payroll from SAS PROC corr](correlation.png)
 
 3. San Diego (SD) has a payroll of 38 million, yet has 90 wins – more than Boston does.
 ---------------------------------------------------------------------------------------
@@ -123,8 +133,6 @@ SAS.
 
 ![](baseball_files/figure-markdown_strict/unnamed-chunk-4-1.png)
 
-4. The league commissioner notes that the Texas Rangers with one of the lowest payrolls won 90 games (and were the American League Champions) and the Chicago Cubs with the highest payroll won only 75 games. This, he argues, proves there is no advantage to teams with a higher payroll. Comment on his argument.
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### 4. The league commissioner notes that the Texas Rangers with one of the lowest payrolls won 90 games (and were the American League Champions) and the Chicago Cubs with the highest payroll won only 75 games. This, he argues, proves there is no advantage to teams with a higher payroll. Comment on his argument.
 
-5. What is the population for these data? Can these data be considered as a random sample from that population?
----------------------------------------------------------------------------------------------------------------
+### 5. What is the population for these data? Can these data be considered as a random sample from that population?
