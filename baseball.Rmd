@@ -3,9 +3,10 @@ title: "baseball"
 author: "mcdevitt"
 date: "10-mars-2017"
 output:
-  html_document: default
+  word_document: default
   md_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -41,6 +42,10 @@ plot(bb$wins ~ bb$payroll)
 points(df_CIN$wins ~ df_CIN$payroll, col = 'red', cex = 1.5)
 
 ```
+
+And the SAS plot ...
+
+![Wins vs. Payroll from SAS PROC sgscatter](scatter_plot.png)
 
 Q1.1 : Looking at the scatterplot, do you expect the correlation to be positive, negative, or close to 0?  
 __A1.1 : Based on the initial scatter plot, the correlation is positive.__  
@@ -80,6 +85,9 @@ points(df_CIN$wins ~ df_CIN$payroll, col = 'red', cex = 1.5)
 
 ```
 
+And the SAS correlation  ...
+
+![Wins vs. Payroll from SAS PROC corr](correlation.png)
 
 
 ## 3.	San Diego (SD) has a payroll of 38 million, yet has 90 wins – more than Boston does.  
