@@ -1,12 +1,14 @@
 ---
-title: "baseball"
-author: "mcdevitt"
+title: "msds 6371 - stats i - homework assignment 8"
+author: "patrick mcdevitt"
 date: "10-mars-2017"
 output:
-  word_document: default
-  md_document: default
-  pdf_document: default
-  html_document: default
+  html_document:
+    theme: united
+    highlight: tango
+---
+
+
 ---
 
 ```{r setup, include=FALSE}
@@ -14,6 +16,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Baseball 
+
+Americans love their baseball.  Even so, there is a concern that teams with more money to spend on players have more success than teams that have less money to spend.  The payroll (X) (in millions of dollars) and the number of games won in the season (out of 162) (Y) are provided in the table below for the 30 major league teams.  The numbers are from the 2010 regular season.  We can use these data to illustrate statistical methods for drawing inferences about correlations.  
+  
 
 
 ```{r, echo = FALSE, message = FALSE}
@@ -85,12 +90,12 @@ points(df_CIN$wins ~ df_CIN$payroll, col = 'red', cex = 1.5)
 
 ```
 
-And the SAS correlation  ...
+####And the SAS correlation  ... provides the same value as R :
 
 ![Wins vs. Payroll from SAS PROC corr](correlation.png)
 
 
-## 3.	San Diego (SD) has a payroll of 38 million, yet has 90 wins – more than Boston does.  
+### 3.	San Diego (SD) has a payroll of 38 million, yet has 90 wins – more than Boston does.  
 Delete SD from the data and rerun the analysis.  
 How does the correlation change?  You may use your preference here, R or SAS. 
 
@@ -118,5 +123,14 @@ points(df_SD$wins ~ df_SD$payroll, col = 'black', pch = 20, cex = 2)
 
 ### 4.	The league commissioner notes that the Texas Rangers with one of the lowest payrolls won 90 games (and were the American League Champions) and the Chicago Cubs with the highest payroll won only 75 games.  This, he argues, proves there is no advantage to teams with a higher payroll.  Comment on his argument.  
 
+#### __A4 : The league commissioner points out 2 exceptions to the general trend. That is not sufficient to demonstrate that a general trend either exists or does not exist. Using the logic of the commissiner, one could just as easily point out that the NY Yankees have the highest payroll and have the absolute maximum number of wins of all of the teams, and also that the Pittsburgh Pirates have the lowest payroll and have the absolute minumum nummber of wins of all of the teams. The more robust approach to establishing whether there is an association between payroll and number of wins is to use all of the available data and to demonstarte statistically whether there is a mathematically provable relationship between payroll and wins.__
+
 
 ### 5.	What is the population for these data? Can these data be considered as a random sample from that population?  
+
+#### __A5 : The population for these data is the payroll and number of wins for Major League Baseball. This particular data sample represents the payroll and win record from the 2010 season. We are not provided enough information to know how the 2010 season was chosen as the data sample for this study; thus, we cannot state that this was a random sample. Perhaps 2010 was chosen for a specific reason to highlight a unique experience. Since the question at hand can have more complexity than just one season's won/loss record, it is recommended to evaluate this experience for several years' data, in any case. __  
+
+
+
+
+
